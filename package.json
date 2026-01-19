@@ -1,0 +1,23 @@
+{
+  "name": "playwright-automation-framework",
+  "version": "1.0.0",
+  "description": "Scalable Playwright automation framework for end-to-end and API testing, built with best practices, CI/CD integration, and maintainable design patterns.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anthony-Playmith/playwright-automation-framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Anthony-Playmith/playwright-automation-framework/issues"
+  },
+  "homepage": "https://github.com/Anthony-Playmith/playwright-automation-framework#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.9"
+  }
+}
