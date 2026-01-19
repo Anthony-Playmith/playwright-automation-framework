@@ -20,7 +20,7 @@ Designed with scalability, maintainability, and CI/CD integration in mind, follo
 ---
 
 ## Project Structure
-
+```
 ├── tests
 │ ├── ui # End-to-end UI tests
 │ ├── api # REST API tests
@@ -31,7 +31,7 @@ Designed with scalability, maintainability, and CI/CD integration in mind, follo
 ├── playwright.config.ts
 ├── package.json
 └── README.md
-
+```
 
 The framework follows the **Page Object Model (POM)** to improve test readability, reuse, and long-term maintainability.
 
