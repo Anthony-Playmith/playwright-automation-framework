@@ -7,12 +7,20 @@ export class SignupPage {
     await expect(this.page.getByText('New User Signup!')).toBeVisible();
   }
 
+  async verifyLogInToYourVisible() {
+    await expect(this.page.getByText('Login to your account')).toBeVisible();
+  }
+
   async enterNameAndEmail(name: string, email: string) {
     await this.page.getByPlaceholder('Name').fill(name);
     await this.page.getByPlaceholder('Email Address').nth(1).fill(email);
   }
 
   async clickSignupButton() {
+    await this.page.getByRole('button', { name: 'Signup' }).click();
+  }
+
+  async clickLoginButton() {
     await this.page.getByRole('button', { name: 'Signup' }).click();
   }
 
