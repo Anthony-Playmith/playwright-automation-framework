@@ -1,7 +1,7 @@
 import { Page, expect } from '@playwright/test';
 
 export class HomePage {
-  constructor(private page: Page) {}
+  constructor(private page: Page) { }
 
   async navigate() {
     await this.page.goto('/');
@@ -12,6 +12,10 @@ export class HomePage {
   }
 
   async clickSignupLogin(linkName: string) {
-    await this.page.getByRole('option', { name: linkName }).click();
+    await this.page.getByRole('link', { name: linkName }).click();
   }
+
+  async clickMenuOption(optionName: string) {
+  await this.page.getByRole('link', { name: optionName }).click();
+}
 }

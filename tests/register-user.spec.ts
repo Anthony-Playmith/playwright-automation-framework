@@ -1,15 +1,9 @@
-import { test } from '@playwright/test';
-import { HomePage } from '../pages/home.page';
-import { SignupPage } from '../pages/signup.page';
-import { AccountPage } from '../pages/account.page';
+import { test, expect } from '../fixtures/pages.fixture';
 
-test('Register User', async ({ page }) => {
-  const homePage = new HomePage(page);
-  const signupPage = new SignupPage(page);
-  const accountPage = new AccountPage(page);
+test('Register User', async ({ homePage, signupPage, accountPage }) => {
 
-  const username = 'JohnDoe';
-  const email = `john${Date.now()}@testmail.com`;
+  const username = 'anthony';
+  const email = `anthony${Date.now()}@testmail.com`;
   const password = 'Password123';
 
   // 1–3
@@ -17,7 +11,7 @@ test('Register User', async ({ page }) => {
   await homePage.verifyHomePageVisible();
 
   // 4–5
-  await homePage.clickSignupLogin(' Signup / Login');
+  await homePage.clickMenuOption(' Signup / Login');
   await signupPage.verifyNewUserSignupVisible();
 
   // 6–7
@@ -42,11 +36,9 @@ test('Register User', async ({ page }) => {
   await accountPage.verifyAccountDeleted();
 });
 
-import { expect } from '@playwright/test';
 
-test('Login user and delete account', async ({ page }) => {
-  const homePage = new HomePage(page);
-  const signupPage = new SignupPage(page);
+test('Login user and delete account', async ({page, homePage, signupPage, accountPage }) => {
+
 
   // Test data
   const email = 'testuser@example.com';
@@ -58,7 +50,7 @@ test('Login user and delete account', async ({ page }) => {
   await homePage.verifyHomePageVisible();
 
   // 4. Click on 'Signup / Login' button
-  await homePage.clickSignupLogin(' Signup / Login');
+  await homePage.clickMenuOption(' Signup / Login');
 
   // 5. Verify 'Login to your account' is visible
   await signupPage.verifyLogInToYourVisible();
@@ -79,4 +71,11 @@ test('Login user and delete account', async ({ page }) => {
   // 10. Verify that 'ACCOUNT DELETED!' is visible
   await expect(page.locator('h2')).toHaveText('ACCOUNT DELETED!');
 });
+
+test('Login user and delete account', async ({page, homePage, signupPage, accountPage }) => {
+
+
+
+});
+
 

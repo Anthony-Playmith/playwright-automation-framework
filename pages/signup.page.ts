@@ -43,7 +43,6 @@ export class SignupPage {
   async fillAddressInformation() {
     await this.page.getByLabel('First Name *').fill('John');
     await this.page.getByLabel('Last Name *').fill('Doe');
-    //await this.page.getByLabel('Company').fill('Playwright Inc');
     await this.page.getByLabel('Address *').fill('123 Main Street');
     await this.page.getByLabel('Address 2').fill('Apartment 4');
     await this.page.selectOption('#country', 'United States');
