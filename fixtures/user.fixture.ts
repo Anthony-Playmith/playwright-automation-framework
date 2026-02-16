@@ -21,6 +21,17 @@ export const test = base.extend<UserFixture>({
     expect(response.ok()).toBeTruthy();
 
     await use(userData);
+
+    const deleteResponse = await request.delete(
+      'https://automationexercise.com/api/deleteAccount',
+      {
+        form: {
+          email: userData.email,
+          password: userData.password
+        }
+      }
+    );
+    expect(deleteResponse.ok()).toBeTruthy();
   }
 });
 
