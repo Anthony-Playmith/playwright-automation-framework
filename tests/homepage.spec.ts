@@ -1,13 +1,11 @@
 import { test, expect } from '../fixtures/pages.fixture';
 
 
-
-
-test('Verify User can add items to the cart', async ({ page, homePage, productsPage, loginPage, viewCartPage, createdUser }) => {
+test('Verify user can add items to the cart', async ({homePage, productsPage, loginPage, viewCartPage, createdUser }) => {
   await homePage.navigate();
-  await homePage.clickMenuOption(' Signup / Login');
+  await homePage.clickMenuOption('Signup / Login');
   await loginPage.login(createdUser.email, createdUser.password);
-  await homePage.clickMenuOption(' Products');
+  await homePage.clickMenuOption('Products');
   await productsPage.addItemToCart({ name: 'Blue Top' });
   await productsPage.clickContinueShopping();
   await productsPage.addItemToCart({ name: 'Men Tshirt' });
