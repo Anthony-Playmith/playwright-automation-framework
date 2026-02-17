@@ -1,14 +1,18 @@
 import { Page, Locator } from '@playwright/test';
 
-export class ViewCartPage {
+export class CheckoutPage {
     readonly page: Page;
     readonly table: Locator;
-    readonly proceedToCheckoutBtn: Locator;
+    readonly placeOrderBtn: Locator;
 
     constructor(page: Page) {
         this.page = page;
-        this.table = page.locator('#cart_info_table');
-        this.proceedToCheckoutBtn = page.getByText('Proceed To Checkout');
+        this.table = page.locator('#cart_info');
+        this.placeOrderBtn = page.getByRole('link', { name: /place order/i });
+    }
+
+    async clickPlaceOrder() {
+        await this.placeOrderBtn.click();
     }
 
     async getItem(description: string) {
@@ -24,17 +28,6 @@ export class ViewCartPage {
         };
     }
 
-    async clickProceedToCheckout() {
-        await this.proceedToCheckoutBtn.waitFor({ state: 'visible' });
-        await this.proceedToCheckoutBtn.click();
-    }
-    async clickDeleteByItemName(itemName: string) {
-        const row = this.page.locator('tr', {
-            has: this.page.locator('h4 a', { hasText: itemName })
-        });
-
-        await row.locator('a.cart_quantity_delete').click();
-    }
     getItemRow(itemName: string) {
         return this.page.locator('tr', {
             has: this.page.locator('h4 a', { hasText: itemName })

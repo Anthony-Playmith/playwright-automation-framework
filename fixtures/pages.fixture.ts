@@ -5,6 +5,9 @@ import { AccountPage } from '../pages/account.page';
 import { LoginPage } from '../pages/login.page';
 import { ViewCartPage } from '../pages/viewcart.page';
 import { ProductsPage } from '../pages/products.page';
+import { CheckoutPage } from '../pages/checkout.page';
+import { PaymentPage } from '../pages/payment.page';
+import { PaymentDonePage } from '../pages/paymentdone.page';
 
 
 type PagesFixture = {
@@ -14,6 +17,9 @@ type PagesFixture = {
   loginPage: LoginPage;
   viewCartPage: ViewCartPage;
   productsPage: ProductsPage;
+  checkoutPage: CheckoutPage;
+  paymentdonePage: PaymentDonePage;
+  paymentPage: PaymentPage;
 };
 
 export const test = base.extend<PagesFixture>({
@@ -38,6 +44,15 @@ export const test = base.extend<PagesFixture>({
   },
   productsPage: async ({ page }, use) => {
     await use(new ProductsPage(page));
+  },
+  checkoutPage: async ({ page }, use) => {
+    await use(new CheckoutPage(page));
+  },
+  paymentPage: async ({ page }, use) => {
+    await use(new PaymentPage(page));
+  },
+  paymentdonePage: async ({ page }, use) => {
+    await use(new PaymentDonePage(page));
   },
 });
 

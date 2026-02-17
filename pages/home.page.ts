@@ -11,10 +11,6 @@ export class HomePage {
     await expect(this.page).toHaveTitle(/Automation Exercise/);
   }
 
-  async clickSignupLogin(linkName: string) {
-    await this.page.getByRole('link', { name: linkName }).click();
-  }
-
   async clickMenuOption(optionName: string) {
   await this.page.getByRole('link', { name: optionName }).click();
 }
