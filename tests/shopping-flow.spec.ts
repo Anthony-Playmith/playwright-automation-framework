@@ -54,7 +54,15 @@ test('TC #3 - Verify user can finalize a purchase', async ({ homePage, productsP
   await productsPage.clickViewCart();
   await viewCartPage.clickProceedToCheckout();
   await checkoutPage.clickPlaceOrder();
-  await paymentPage.fillCardDetails("Anthony Playmith","123456789", "321", "10", "2030");
+  await paymentPage.fillCardDetails("Anthony Playmith", "123456789", "321", "10", "2030");
   await paymentPage.clickPayAndConfirm();
   await expect(paymentdonePage.orderPlacedMessage).toBeVisible();
+});
+
+test('TC #7 - Verify cart is empty by default', async ({ homePage, productsPage, loginPage, viewCartPage, checkoutPage, paymentdonePage, paymentPage, createdUser }) => {
+  await homePage.navigate();
+  await homePage.clickMenuOption('Signup / Login');
+  await loginPage.login(createdUser.email, createdUser.password);
+  await homePage.clickMenuOption('Cart');
+  await expect(viewCartPage.cartIsEmptyMessage).toBeVisible();
 });

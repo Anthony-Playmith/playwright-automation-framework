@@ -4,11 +4,13 @@ export class ViewCartPage {
     readonly page: Page;
     readonly table: Locator;
     readonly proceedToCheckoutBtn: Locator;
+    readonly cartIsEmptyMessage: Locator;
 
     constructor(page: Page) {
         this.page = page;
         this.table = page.locator('#cart_info_table');
         this.proceedToCheckoutBtn = page.getByText('Proceed To Checkout');
+        this.cartIsEmptyMessage = page.getByText('Cart is empty! Click here to buy products.');
     }
 
     async getItem(description: string) {

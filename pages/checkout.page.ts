@@ -10,11 +10,6 @@ export class CheckoutPage {
         this.table = page.locator('#cart_info');
         this.placeOrderBtn = page.getByRole('link', { name: /place order/i });
     }
-
-    async clickPlaceOrder() {
-        await this.placeOrderBtn.click();
-    }
-
     async getItem(description: string) {
         const row = this.table.locator('tbody tr').filter({
             has: this.page.locator('.cart_description', { hasText: description })
